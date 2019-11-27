@@ -13,7 +13,9 @@ import { DataService } from './data.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatAutoCompleteModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
