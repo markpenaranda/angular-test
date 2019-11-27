@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
     
@@ -43,8 +44,6 @@ export class AppComponent implements OnInit {
     }
 
     getRange(range) {
-        console.log(this.selectedCompany)
-        console.log(this.selectedCompany.data[range])
         this.selectedRange = this.selectedCompany.data[range]
     }
     
