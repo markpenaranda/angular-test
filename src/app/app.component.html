@@ -1,4 +1,15 @@
 <h1 class="text-center">Broker Dashboard</h1>
 
-<mat-form-field>
+<mat-form-field class="example-full-width">
+        <input matInput placeholder="Search for Company" aria-label="State" [matAutocomplete]="auto" [formControl]="searchBar">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let company of filterCompanies$ | async" [value]="company.name">
+            <span>{{company.name}}</span> |
+          </mat-option>
+        </mat-autocomplete>
 </mat-form-field>
+
+
+<div>
+    
+</div>
