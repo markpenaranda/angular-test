@@ -1,5 +1,7 @@
-export interface Company {
-    name: string 
+export class Company {
+    name: string
     data: any
+    constructor(
+      
+    ) {}
 }
-

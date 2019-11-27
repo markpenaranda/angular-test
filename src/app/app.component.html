@@ -1,4 +1,34 @@
 <h1 class="text-center">Broker Dashboard</h1>
+<div class="container">
+        <form>
+                <mat-form-field class="full-width">
+                    <mat-icon>search</mat-icon>
+                        <input matInput class="form-control" [matAutocomplete]="auto" [formControl]="searchBar">
+                        <mat-autocomplete  (optionSelected)='getCompany($event.option.value)' #auto="matAutocomplete">
+                          <mat-option *ngFor="let company of filteredCompanies$ | async" [value]="company.name">
+                            <span>{{company.name}}</span> 
+                          </mat-option>
+                        </mat-autocomplete>
+                </mat-form-field>
+        </form>
 
-<mat-form-field>
-</mat-form-field>
+
+   
+</div>
+
+
+
+
+<div>
+        <div *ngIf="selectedCompany">
+                <h5>{{ selectedCompany.name | titlecase }}</h5>
+                <button (click)="getRange('7DAYS')">7 Days</button>
+                <button (click)="getRange('30DAYS')">30 Days</button>
+                <button (click)="getRange('60DAYS')">60 Days</button>
+                <ul  *ngIf="selectedRange">
+                    <li>Average changes: <span  [ngClass]="{'green': selectedRange.AC > 0, 'red': selectedRange.AC < 0 }" >{{ selectedRange?.AC }}</span></li>
+                    <li>Period changes: <span  [ngClass]="{'green': selectedRange.PC > 0, 'red': selectedRange.PC < 0 }">{{ selectedRange?.PC }}</span></li>
+                    <li>Next Predicted changes: <span  [ngClass]="{'green': selectedRange.NPC > 0, 'red': selectedRange.NPC < 0 }">{{ selectedRange?.NPC }}</span></li>
+                </ul>
+            </div>
+</div>

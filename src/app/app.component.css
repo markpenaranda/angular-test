@@ -2,3 +2,15 @@
 body {
   margin: 10px;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
